@@ -1,0 +1,180 @@
+:root {
+  --bg: #0f1115;
+  --surface: #171a21;
+  --surface-2: #1f232c;
+  --border: #2a2f3a;
+  --text: #e7e9ee;
+  --text-muted: #9aa1b2;
+  --income: #3ddc97;
+  --expense: #ff6b6b;
+  --balance: #5b9bff;
+  --pending: #ffc857;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Login ---------- */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.login-card h1 { margin: 0 0 8px; font-size: 1.5rem; }
+.login-card p { color: var(--text-muted); margin: 0 0 24px; }
+
+.btn-google {
+  background: #fff;
+  color: #1f1f1f;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-google:hover { background: #f1f1f1; }
+
+/* ---------- App shell ---------- */
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.app-header h1 { font-size: 1.25rem; margin: 0; }
+
+.header-actions { display: flex; gap: 8px; align-items: center; }
+
+.month-select, .btn-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: var(--border); }
+
+.app-main {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading, .error-msg {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--text-muted);
+}
+
+.error-msg { color: var(--expense); }
+
+/* ---------- Cards ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-label { color: var(--text-muted); font-size: 0.85rem; }
+.card-value { font-size: 1.6rem; font-weight: 700; }
+
+.card-income .card-value { color: var(--income); }
+.card-expense .card-value { color: var(--expense); }
+.card-balance .card-value { color: var(--balance); }
+.card-pending .card-value { color: var(--pending); }
+
+/* ---------- Charts ---------- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chart-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.chart-box h2 { margin: 0 0 16px; font-size: 1rem; color: var(--text-muted); }
+.chart-box canvas { max-height: 280px; }
+
+/* ---------- Tables ---------- */
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.table-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.table-box h2 { margin: 0 0 16px; font-size: 1rem; color: var(--text-muted); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { color: var(--text-muted); font-weight: 600; }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --surface-2: #eef0f4;
+    --border: #dde1e8;
+    --text: #1c1f26;
+    --text-muted: #666e7d;
+  }
+}
